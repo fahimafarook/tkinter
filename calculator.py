@@ -1,14 +1,13 @@
-from tkinter import*
-from tkinter import messagebox
+from tkinter import*                                                                        // Tkinker class is initailly imported
 
-root=Tk()
-root.title("calculator")
-root.geometry("250x350")
+root=Tk()             
+root.title("calculator")                                                                   // title name
+root.geometry("250x350")                                                                   // geometry of root window
 
 operator=""
 text_input=StringVar()
-row1=Frame(root,bg="grey")
-row1.pack(expand=True,fill="both")
+row1=Frame(root,bg="grey")                                                                 // creaition of frames
+row1.pack(expand=True,fill="both")                                                         // packing them to the main window
 row2=Frame(root,bg="blue")
 row2.pack(expand=True,fill="both")
 row3=Frame(root,bg="yellow")
@@ -18,10 +17,10 @@ row4.pack(expand=True,fill="both")
 row5=Frame(root,bg="black")
 row5.pack(expand=True,fill="both")
 
-text_disp=Entry(row1,textvariable=text_input,font=("teletype",18),justify="right")
+text_disp=Entry(row1,textvariable=text_input,font=("teletype",18),justify="right")        // Entry box
 text_disp.pack(expand=True,fill="both")
 
-def which_is_pressed(val):
+def which_is_pressed(val):                                                                // expression evaluation
     global operator
     if(val==15):
         max = -1000000
@@ -38,8 +37,10 @@ def which_is_pressed(val):
         if sum > max:
             max = sum
         print(max)
-        operator=max
+        operator=""
+        operator=operator+str(max)
         text_input.set(operator)
+        #operator=operator+max
     elif(val==14):
         temp=""
         temp=operator
@@ -62,7 +63,7 @@ def which_is_pressed(val):
     else:
         operator=operator+str(val)
         text_input.set(operator)
-    if(val==1):
+    if(val==1):                                                                           // button chek
         print(1)
     elif(val==2):
         print(2)
@@ -96,11 +97,10 @@ divide= Button(row5, text="/", font=("teletype",18),command=lambda:which_is_pres
 clear= Button(row5, text="c", font=("teletype",18),command=lambda:which_is_pressed(14), activeforeground="red", activebackground="pink",bg="#2C090A",fg="white",relief=GROOVE,border=0)
 equal= Button(row5, text="=",font=("teletype",18), command=lambda:which_is_pressed(15), activeforeground="red", activebackground="pink",bg="#2c3539",fg="white",relief=GROOVE,border=0)
 zero= Button(row5, text="0", font=("teletype",18),command=lambda:which_is_pressed(0), activeforeground="red", activebackground="pink",bg="black",fg="white",relief=GROOVE,border=0)
-#text1.grid(row=1,column=1)
 '''
-one.grid(row=2,column=1)
+one.grid(row=2,column=1)  // Incase of grid this c
 two.grid(row=2,column=2)
-three.grid(row=2,column=3)0
+three.grid(row=2,column=3)
 four.grid(row=3,column=1)
 five.grid(row=3,column=2)
 six.grid(row=3,column=3)
@@ -108,7 +108,7 @@ seven.grid(row=4,column=1)
 eight.grid(row=4,column=2)
 nine.grid(row=4,column=3)
 '''
-one.pack(side="left",expand=True,fill="both")
+one.pack(side="left",expand=True,fill="both")                                          // packing all the buttons to the resp frames
 two.pack(side="left",expand=True,fill="both")
 three.pack(side="left",expand=True,fill="both")
 plus.pack(side="left",expand=True,fill="both")
